@@ -42,3 +42,11 @@ footer {
 .custom-error{
   color: #FF0000;
 }
+.spacer-20{
+  height:20px;
+  clear:both;
+}
+.spacer-10{
+  height:10px;
+  clear:both;
+}
