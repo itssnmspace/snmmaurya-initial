@@ -1,31 +1,29 @@
-<p id="notice"><%= notice %></p>
+<%= render 'shared/header_title', header_title: "Blogs", header_sub_title: "Blog a post and comment system!" %>
 
-<h1>Blogs</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Description</th>
-      <th>User</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
+<!-- Intro Content -->
+<div class="row">
+  <% if @blogs.present? %>
     <% @blogs.each do |blog| %>
-      <tr>
-        <td><%= blog.title %></td>
-        <td><%= blog.description %></td>
-        <td><%= blog.user %></td>
-        <td><%= link_to 'Show', blog %></td>
-        <td><%= link_to 'Edit', edit_blog_path(blog) %></td>
-        <td><%= link_to 'Destroy', blog, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+      <div class="col-sm-12">
+        <p>
+          <p><h3><%= blog.title %></h3>
+          <%= truncate(blog.description, length: 250) %></p>
+          <div class="col-sm-12 text-right">
+          <%= link_to "View More", blog_path(blog) %> |
+          <% if can? :update, blog %>
+            <%= link_to "Edit", edit_blog_path(blog) %> |
+          <% end %>
+          <% if can? :destroy, blog %>
+            <%= link_to "Destroy", blog_path(blog), method: :destroy, data: {confirmation: "Are you sure?"} %> | 
+          <% end %>
+          By <%= link_to blog.user.try(:username), "#" %>
+          </div>
+        </p>
+        <hr>
+      </div>
     <% end %>
-  </tbody>
-</table>
+  <% else %>
+    <%= render "shared/search_not_found" %>
+  <% end %>
 
-<br>
-
-<%= link_to 'New Blog', new_blog_path %>
+</div>

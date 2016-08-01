@@ -12,6 +12,8 @@
  *
  *= require bootstrap
  *= require custom
+ *= require font-awesome
+ *= require bootstrap-social
  *= require override
  *= require snm
  *= require summernote
