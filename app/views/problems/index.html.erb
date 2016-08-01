@@ -1,0 +1,20 @@
+<%= render 'shared/header_title', header_title: "Questions", header_sub_title: "Questions related to #{@topic.title}" %>
+
+<%= render "shared/solution_anchors" %>
+
+<!-- Intro Content -->
+<div class="row">
+  <% if @problems.present? %>
+    <% @problems.each do |problem| %>
+      <div class="col-sm-12">
+        <h3> <%= link_to problem.title, topic_problem_path(@topic, problem) %></h3>
+        <p><strong>Available Answers: </strong> <%= problem.solutions.count %></p>
+      </div>
+    <% end %>
+  <% else %>
+    <%= render "shared/search_not_found" %>
+  <% end %>
+ <!--  <div class="col-sm-12">
+  <div id="editor"></div>
+  </div> -->
+</div>

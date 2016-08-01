@@ -1,0 +1,25 @@
+<%= render 'shared/header_title', header_title: "Questions", header_sub_title: "Questions related to #{@topic.title}" %>
+
+<%= render "shared/solution_anchors" %>
+<!-- Intro Content -->
+<div class="row">
+  <div class="col-sm-12">
+    <h3><%= @problem.title %> Solutions#<%= @solution_counter %></h3>
+    <hr>
+    <!-- Make Sure Answers Are Available -->
+    <% if @solution_counter > 0 %>
+      <% @problem.solutions.each_with_index do |solution, index| %>
+        <p>
+          <strong>[#<%= index + 1 %>]</strong>
+          <%= solution.title %>
+        </p>
+        <%= render partial: "shared/solution_actions", locals: {solution: solution} %> 
+      <% end %>
+    <% end %>
+  </div>
+
+  <div class="col-sm-12">
+    <div id="solution-form">
+    </div>
+  </div>
+</div>

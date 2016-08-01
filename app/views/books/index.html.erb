@@ -1,0 +1,19 @@
+<%= render 'shared/header_title', header_title: "Available Books", header_sub_title: "" %>
+
+<!-- Start row -->
+<div class="row">
+  <% @books.each do |book| %>
+    <div class="col-md-6 portfolio-item text-center snm-height-four">
+      <a href="<%= book_book_contents_path(book) %>">
+        <%= image_tag book.images.last.data.url(:original), alt: book.title, class: "snm-image-size-portfolio-one" %>
+      </a>
+      <h3>
+        <%= link_to book.title, book_book_contents_path(book) %>
+      </h3>
+      <p>
+        <%= book.description %>
+      </p>
+    </div>
+  <% end %>
+</div>
+<!-- /.row -->

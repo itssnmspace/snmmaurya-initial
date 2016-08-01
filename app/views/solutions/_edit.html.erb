@@ -1,0 +1,9 @@
+<%= form_for [@topic, @problem, @solution] do |form| %>
+  <fieldset class="form-group">
+    <%= form.label "Update Solution", for: "Solution" %>
+    <%= form.text_area :title, class: "form-control", placeholder: "Your Solution...." %>
+    <!-- hidden fields -->
+    <%= hidden_field_tag "solution[problem_id]", @problem.id %>
+  </fieldset>
+  <button type="submit" class="btn btn-primary">Update Your Solution</button>
+<% end %>

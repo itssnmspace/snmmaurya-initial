@@ -1,0 +1,14 @@
+a{
+  text-decoration: none !important;
+}
+.flash_message{
+  margin-top: -20px;
+  text-align: center;
+}
+.media{
+  padding: 0 0 0 20px !important;
+}
+.snm-comment-border-spacer{
+  padding: 25px 0;
+  border-bottom: 1px solid #cccccc;
+}
