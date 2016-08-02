@@ -29,4 +29,8 @@ module ApplicationHelper
      comment_html += "</div>"
      comment_html.html_safe
   end
+
+  def create_flash_message_and_class
+    flash[:success].present? ? [flash[:success], "success"] : (flash[:notice].present? ? [flash[:notice], "success"] : [flash[:error], "danger"])
+  end
 end

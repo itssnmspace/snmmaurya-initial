@@ -95,4 +95,15 @@ Rails.application.configure do
     authentication:       'plain',
     enable_starttls_auto: true
   }
+
+
+  # # Amazon Web Services S3
+  # config.paperclip_defaults = {
+  #   :storage => :s3,
+  #   :s3_credentials => {
+  #     :bucket => 'consignnyc', 
+  #     :access_key_id => ENV['AWS_ACCESS_KEY'],
+  #     :secret_access_key => ENV['AWS_SECRET_ACCESS_KEY']
+  #   }
+  # }
 end

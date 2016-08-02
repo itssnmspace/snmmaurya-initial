@@ -10,9 +10,11 @@ class CommentsController < ApplicationController
     @comment.blog_id = @blog.id
     @comment.user_id = current_user.id
     if @comment.save
+      flash[:success] = "Success"
       redirect_to blog_path(@blog)
     else
-      render :new
+      flash[:error] = "Unable to process #{@comment.errors.full_messages.join(', ')}"
+      redirect_to blog_path(@blog)
     end  
   end
 

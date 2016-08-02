@@ -17,8 +17,24 @@
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav navbar-left">
           <li>
-            <a href="<%= about_index_path %>">About</a>
+            <%= link_to "Programing is fun! as Rubiest", rubiests_path %>
           </li>
+          <li>
+            <%= link_to "Solutions", topics_path %>
+          </li>
+
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">More<b class="caret"></b></a>
+            <ul class="dropdown-menu">
+              <li>
+                <%= link_to "About", about_index_path %>
+              </li>
+              <li><%= link_to "Portfolio", portfolios_path %></li>
+              <li><%= link_to "Contact Me", contact_pages_path %></li>
+              <li><%= link_to "Blog", blogs_path %></li>
+            </ul>
+          </li>
+
         </ul>
         <ul class="nav navbar-nav navbar-right">
 

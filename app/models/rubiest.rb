@@ -1,0 +1,2 @@
+class Rubiest < ApplicationRecord
+end

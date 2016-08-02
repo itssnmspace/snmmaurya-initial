@@ -1,9 +1,13 @@
 class User < ApplicationRecord
+  # Include default devise modules. Others available are:
+  # :confirmable, :lockable, :timeoutable and :omniauthable
+  devise :database_authenticatable, 
+         :recoverable, :rememberable, :trackable, :validatable
   include UserConcern
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
-  devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable, :omniauthable, :omniauth_providers => [:github, :facebook, :twitter, :linkedin, :google]
+  devise :database_authenticatable, 
+         :recoverable, :rememberable, :trackable, :validatable, :omniauthable, :omniauth_providers => [:github, :facebook, :twitter, :linkedin, :google, :amazon]
 
   has_many :images, as: :imageable
   has_many :topics
@@ -28,6 +32,6 @@ class User < ApplicationRecord
   accepts_nested_attributes_for :images, allow_destroy: true
 
   def master?
-    self.role.title == "master"
+    self.role.try(:title) == "master"
   end
 end

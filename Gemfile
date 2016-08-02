@@ -46,6 +46,8 @@ group :development do
   gem 'pry'
 end
 
+gem 'config'
+
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
@@ -70,3 +72,11 @@ gem 'friendly_id', '~> 5.1.0'
 
 
 gem "paperclip", "~> 5.0.0"
+gem 'aws-sdk'
+
+#Active Admin for rails 5
+gem 'activeadmin', '~> 1.0.0.pre4'
+gem 'inherited_resources', github: 'activeadmin/inherited_resources'
+gem 'ransack',             github: 'activerecord-hackery/ransack'
+gem 'draper',              '> 3.x'
+gem 'kaminari'

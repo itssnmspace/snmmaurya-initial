@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Rubiests</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @rubiests.each do |rubiest| %>
+      <tr>
+        <td><%= link_to 'Show', rubiest %></td>
+        <td><%= link_to 'Edit', edit_rubiest_path(rubiest) %></td>
+        <td><%= link_to 'Destroy', rubiest, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Rubiest', new_rubiest_path %>

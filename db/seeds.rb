@@ -6,6 +6,10 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+unless AdminUser.find_by email: "admin@snmmaurya.com"
+  AdminUser.create(email: "admin@snmmaurya.com", password: "snmmaurya", password_confirmation: "snmmaurya")
+end  
+
 ["master", "user"].each do |title|
   Role.where(title: title).first_or_create
 end
