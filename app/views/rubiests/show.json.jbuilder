@@ -1,0 +1,1 @@
+json.partial! "rubiests/rubiest", rubiest: @rubiest

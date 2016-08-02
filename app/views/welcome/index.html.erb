@@ -40,10 +40,10 @@
       
   </div>
   <div class="col-md-3 portfolio-item">
-      <%= link_to books_path do %>
+      <%= link_to rubiests_path do %>
         <%= create_asset_image_template({image_asset_code: "programing_is_fun!_as_rubiest ", class: "img-responsive"}) %>
       <% end %>
-      <%= link_to "Programing is fun! as Rubiest", books_path %>
+      <%= link_to "Programing is fun! as Rubiest", rubiests_path %>
   </div>
 </div>
 <!-- /.row -->
@@ -58,10 +58,10 @@
       
   </div>
   <div class="col-md-3 portfolio-item">
-      <a href="#">
+      <%= link_to contact_pages_path do %>
         <%= create_asset_image_template({image_asset_code: "contact", class: "img-responsive"}) %>
-      </a>
-      Contact Me
+      <% end %>
+      <%= link_to "Contact Me", contact_pages_path %>
   </div>
   <div class="col-md-3 portfolio-item">
       <%= link_to blogs_path do %>

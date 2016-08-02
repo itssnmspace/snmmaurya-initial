@@ -1,0 +1,34 @@
+<%= form_for(rubiest) do |form| %>
+  <% if rubiest.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(rubiest.errors.count, "error") %> prohibited this rubiest from being saved:</h2>
+
+      <ul>
+      <% rubiest.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <fieldset class="form-group">
+    <%= form.label :title %><br />
+    <%= form.text_field :title, autofocus: true, class: "form-control" %>
+  </fieldset>
+
+  <fieldset class="form-group">
+    <%= form.label :description %><br />
+    <%= form.text_area :description, class: "form-control" %>
+  </fieldset>
+
+  <fieldset class="form-group">
+    <%= form.check_box :featured %>
+    <%= form.label :featured %>
+  </fieldset>
+
+  <%= hidden_field_tag "rubiest[user_id]", current_user.try(:id) %>
+
+  <div class="actions">
+    <%= form.submit "Submit", class: "btn btn-primary width-hundred-percent" %>
+  </div>
+<% end %>

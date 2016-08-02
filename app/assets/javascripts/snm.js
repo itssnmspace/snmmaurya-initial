@@ -26,6 +26,17 @@ SnmJS = (function($, window, document, snm){
         $(this).find(".modal-content").load($(e.relatedTarget).attr("href"));
       });
     },
+
+    BlogAdvanceSearchModalController: function(){
+      $("#advance-search-modal").on("show.bs.modal", function(e) {
+        // var link = $(e.relatedTarget);
+        $(this).find(".modal-content").load($(e.relatedTarget).attr("href"));
+      });
+    },
+
+    CommonMethodController: function(){
+      $(".flash_message").delay(3000).hide(3000);
+    }
   };
   return snm;
 })(jQuery, this, this.document, SnmJS);
@@ -34,4 +45,6 @@ $(document).ready(function(){
   SnmJS.custom.questionEditorController();
   SnmJS.custom.blogCommentController();
   SnmJS.custom.signinModalController();
+  SnmJS.custom.BlogAdvanceSearchModalController();
+  SnmJS.custom.CommonMethodController();
 })

@@ -4,7 +4,18 @@ class BlogsController < ApplicationController
   # GET /blogs
   # GET /blogs.json
   def index
-    @blogs = Blog.all
+    @search = Blog.search do
+      fulltext params[:search]
+      fulltext params[:description]
+
+      with :user_id, params[:user_id] if params[:user_id].present?
+      with :featured, params[:featured] if params[:featured].present?
+
+      if params[:date_from].present?
+        with :created_at, params[:date_from].to_date..(params[:date_to].present? ? params[:date_to] : Date.today).to_date
+      end
+    end  
+    @blogs = @search.results
   end
 
   # GET /blogs/1
@@ -60,6 +71,10 @@ class BlogsController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  def advance_search
+    render layout: false
+  end  
 
   private
     # Use callbacks to share common setup or constraints between actions.

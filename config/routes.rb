@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+
+  devise_for :admin_users, ActiveAdmin::Devise.config
+  ActiveAdmin.routes(self)
   devise_for :users, controllers: {
     registrations: "users/registrations",
     sessions: "users/sessions",
@@ -26,7 +29,22 @@ Rails.application.routes.draw do
   end
 
   resources :blogs do
+    collection do
+      get :advance_search
+    end  
     resources :comments
   end
+
+  resources :rubiests
+  resources :pages do
+    collection do
+      get :contact
+      post :create_contact
+    end
+  end
+
+  resources :messages
+  #action cable running status
+  mount ActionCable.server => '/cable'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
