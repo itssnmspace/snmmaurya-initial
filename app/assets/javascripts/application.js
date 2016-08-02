@@ -16,4 +16,4 @@
 //= require bootstrap
 //= require summernote
 //= require snm
-//= require cable
+// require cable

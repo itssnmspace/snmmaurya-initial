@@ -34,6 +34,11 @@ SnmJS = (function($, window, document, snm){
       });
     },
 
+    cunstructFlashMessageController: function(container_class, message_class, flash_message){
+      $(document).find("."+container_class).html("<div class='alert-alert "+message_class+" flash_message'>"+flash_message+"</div>");
+    },
+
+
     CommonMethodController: function(){
       $(".flash_message").delay(3000).hide(3000);
     }
@@ -47,4 +52,5 @@ $(document).ready(function(){
   SnmJS.custom.signinModalController();
   SnmJS.custom.BlogAdvanceSearchModalController();
   SnmJS.custom.CommonMethodController();
+  SnmJS.custom.cunstructFlashMessageController();
 })

@@ -43,7 +43,7 @@ footer {
   width: 100%;
 }
 .custom-error{
-  color: #FF0000;
+  color: #a94442;
   padding: 10px;
 }
 .spacer-20{
@@ -54,4 +54,7 @@ footer {
 }
 .clear{
   clear:both;
+}
+.error{
+ color: #a94442;
 }
