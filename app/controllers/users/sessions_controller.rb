@@ -14,13 +14,29 @@ class Users::SessionsController < Devise::SessionsController
   end
 
   # POST /resource/sign_in
+  # def create
+  #   self.resource = warden.authenticate!(auth_options)
+  #   set_flash_message!(:notice, :signed_in)
+  #   sign_in(resource_name, resource)
+  #   yield resource if block_given?
+  #   respond_with resource, location: after_sign_in_path_for(resource)
+  # end
+
   def create
-    self.resource = warden.authenticate!(auth_options)
-    set_flash_message!(:notice, :signed_in)
-    sign_in(resource_name, resource)
-    yield resource if block_given?
-    respond_with resource, location: after_sign_in_path_for(resource)
+    resource = User.find_for_database_authentication(email: params[:user][:email])
+    return respond_with_status_message({status: "failed", message: "Invalid Username"}) unless resource
+    if resource.valid_password?(params[:user][:password])
+      if sign_in :user, resource
+        flash[:success] = "Signed in success"
+        respond_with_status_message({status: "success", message: "Signed in success!"})
+      else
+        respond_with_status_message({status: "failed", message: "Invalid Password"})
+      end
+    else
+      respond_with_status_message({status: "failed", message: "Invalid Username or Password"})
+    end
   end
+
 
   # DELETE /resource/sign_out
   def destroy
@@ -30,8 +46,7 @@ class Users::SessionsController < Devise::SessionsController
     respond_to_on_destroy
   end
 
-  protected
-
+protected
   def sign_in_params
     devise_parameter_sanitizer.sanitize(:sign_in)
   end
@@ -51,8 +66,14 @@ class Users::SessionsController < Devise::SessionsController
     'devise.sessions'
   end
 
-  private
+  def respond_with_status_message options={}
+    respond_to do |response|
+      response.html
+      response.js {@options = options}
+    end
+  end
 
+private
   # Check if there is no signed in user before doing the sign out.
   #
   # If there is no signed in user, it will set the flash message and redirect

@@ -276,4 +276,5 @@ Devise.setup do |config|
   config.omniauth :twitter, "Dsp0TEU1p74HDsJQhJX7z6xMH", "EzS7tfBJ6tjo8dRiLDjlRxhMngsohkbSalBI9Nfg8GBilvNj2I"
   config.omniauth :google, "1004427226341024", "8fae775bbf84eee2f150964a0fbdd827"
   config.omniauth :linkedin, "81bgb7wn9555xx", "OhIh5JKQRIERGDh1"
+  config.omniauth :amazon, "", ""
 end

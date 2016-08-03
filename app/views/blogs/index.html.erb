@@ -1,5 +1,22 @@
 <%= render 'shared/header_title', header_title: "Blogs", header_sub_title: "Blog a post and comment system!" %>
 
+<div class="row">
+  <div class="col-lg-10">
+    <form action="" method="get">
+      <div class="input-group">
+        <input type="text" name="search" value="<%= params[:search] %>" class="form-control" placeholder="Sunspot:Solr Search for...">
+        <span class="input-group-btn">
+          <button class="btn btn-default" type="submit">
+            <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+          </button>
+        </span>
+      </div><!-- /input-group -->
+    </form>
+  </div>
+  <div class="col-lg-2 text-right">
+  <%= link_to "Advance Search", advance_search_blogs_path, class: "btn btn-default", data: {toggle: :modal, target: "#advance-search-modal", remote: false} %>
+  </div>
+</div>
 <!-- Intro Content -->
 <div class="row">
   <% if @blogs.present? %>

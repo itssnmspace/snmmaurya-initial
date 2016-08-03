@@ -63,4 +63,14 @@ Rails.application.configure do
     authentication:       'plain',
     enable_starttls_auto: true
   }
+
+
+  #  # Amazon Web Services - S3
+  # config.paperclip_defaults = {
+  #   :storage => :s3,
+  #   :s3_credentials => {
+  #     :bucket => 'snmspace',
+  #     :s3_credentials => "#{Rails.root}/config/aws.yml",
+  #   }
+  # }
 end

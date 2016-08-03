@@ -1,4 +1,4 @@
-<div class="spacer-10"></div>
+<div class="spacer-10 clear"></div>
 <div class="row">
   <div class="col-sm-6">
   <%- if controller_name != 'sessions' %>
@@ -6,7 +6,7 @@
   <% end -%>
 
   <%- if devise_mapping.registerable? && controller_name != 'registrations' %>
-    <%= link_to "Sign up", new_registration_path(resource_name) %>
+    <%= link_to "Sign up",  new_user_registration_path %>
   <% end -%>
   </div>
   <div class="col-sm-6 text-right">
@@ -16,18 +16,20 @@
   </div>
 </div>
 
-<div class="spacer-20"></div>
+<div class="spacer-20 clear"></div>
 
 <div class="row">
   <%- if devise_mapping.omniauthable? %>
-    <%- resource_class.omniauth_providers.each do |provider| %>
-      <div class="col-sm-12">
+    <%- resource_class.omniauth_providers.each_with_index do |provider, index| %>
+      <div class="col-sm-6">
       <%= link_to omniauth_authorize_path(resource_name, provider), class: "btn btn-block btn-social btn-#{provider}" do %>
         <span class="fa fa-<%= provider %>"></span>
         Sign in with <%= OmniAuth::Utils.camelize(provider)%>
       <% end %>
       </div>
-      <div class="spacer-10"></div>
+      <% unless index % 2 == 0 %>
+        <div class="spacer-10 clear"></div>
+      <% end %>
     <% end -%>
   <% end -%>
 </div>

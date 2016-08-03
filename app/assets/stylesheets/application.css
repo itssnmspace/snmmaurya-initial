@@ -17,5 +17,6 @@
  *= require override
  *= require snm
  *= require summernote
+ *= require bootstrap-datetimepicker
  *= require_self
  */

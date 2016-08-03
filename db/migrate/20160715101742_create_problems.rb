@@ -1,8 +1,8 @@
 class CreateProblems < ActiveRecord::Migration
   def change
     create_table :problems do |t|
-    	t.text :title
-    	t.string :description
+    	t.string :title
+    	t.text :description
       t.belongs_to :topic, index: true
       t.boolean :featured, default: true
       t.boolean :correct, default: true

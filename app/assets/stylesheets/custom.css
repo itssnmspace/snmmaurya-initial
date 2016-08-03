@@ -10,20 +10,27 @@ body {
 
 .portfolio-item {
   margin-bottom: 25px;
+  text-align: center;
 }
 
 footer {
   margin: 50px 0;
 }
-.topic-anchor-container .col-sm-12{
-  background-color: #ccc;
-}
+
 .topic-anchor-container .topic-anchor{
   padding: 15px;
   display: block;
 }
+
+.topic-anchor-container .anchor-container{
+  margin-right: 5px;
+}
+/* Custom css COMMON CSS */
 .right-border{
-  border-right: 1px solid #123456;
+  border-right: 1px solid #cccccc;
+}
+.left-border{
+  border-left: 1px solid #cccccc;
 }
 .book-index-container ul{
   list-style: none;
@@ -40,13 +47,63 @@ footer {
   width: 100%;
 }
 .custom-error{
-  color: #FF0000;
+  color: #a94442;
+  padding: 10px;
 }
 .spacer-20{
   height:20px;
-  clear:both;
 }
 .spacer-10{
   height:10px;
+}
+.clear{
   clear:both;
+}
+.error{
+ color: #a94442;
+}
+.bg-color-green-one{
+  background-color: #dff0d8;
+}
+.bg-color-green-two{
+  background-color: #3c763d;
+}
+.bg-color-red-one{
+  background-color: #a94442;
+}
+.featured{
+  font-size: 10px;
+}
+/* END Custom css COMMON CSS */
+
+
+/* Custom css for editors */
+#editor-preview #header{
+  display: block;
+  font-weight: bold;
+}
+/* END Custom css for editors */
+
+
+/* Custom css for anchors for solutions */
+
+/* END Custom css for anchors for solutions */
+
+
+/* Custom css for Rubiest */
+.rubiests-container .rubiests-anchor.selected{
+  color: #123456;
+  font-weight: bold;
+  font-style: italic;
+}
+/* END Custom css for Rubiest */
+
+
+.home-page-image{
+  height: 200px;
+  width: 250px;
+}
+.profile-image{
+  height: 250px;
+  width: 300px;
 }

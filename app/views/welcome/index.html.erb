@@ -5,7 +5,7 @@
     <div class="col-md-7">
       <a href="#">
         <% if @user.images.last.present? %>
-          <%= image_tag @user.images.last.data.url(:medium), class: "", alt: @user.username %>
+          <%= image_tag @user.images.last.data.url(:medium), class: "profile-image", alt: @user.username %>
         <% end %>
       </a>
     </div>
@@ -34,16 +34,16 @@
 
   <div class="col-md-3 portfolio-item">
       <%= link_to topics_path do %>
-        <%= create_asset_image_template({image_asset_code: "solutions", class: "img-responsive"}) %>
+        <%= create_asset_image_template({image_asset_code: "solutions", class: "home-page-image"}) %>
       <% end %>
       <%= link_to "Solutions", topics_path %>
       
   </div>
   <div class="col-md-3 portfolio-item">
-      <%= link_to books_path do %>
-        <%= create_asset_image_template({image_asset_code: "programing_is_fun!_as_rubiest ", class: "img-responsive"}) %>
+      <%= link_to rubiests_path do %>
+        <%= create_asset_image_template({image_asset_code: "programing_is_fun!_as_rubiest", class: "home-page-image"}) %>
       <% end %>
-      <%= link_to "Programing is fun! as Rubiest", books_path %>
+      <%= link_to "Programing is fun! as Rubiest", rubiests_path %>
   </div>
 </div>
 <!-- /.row -->
@@ -52,26 +52,26 @@
 <div class="row">
   <div class="col-md-3 portfolio-item">
       <%= link_to about_index_path do %>
-        <%= create_asset_image_template({image_asset_code: "about", class: "img-responsive"}) %>
+        <%= create_asset_image_template({image_asset_code: "about", class: "home-page-image"}) %>
       <% end %>
       <%= link_to "About Me", about_index_path %>
       
   </div>
   <div class="col-md-3 portfolio-item">
-      <a href="#">
-        <%= create_asset_image_template({image_asset_code: "contact", class: "img-responsive"}) %>
-      </a>
-      Contact Me
+      <%= link_to contact_pages_path do %>
+        <%= create_asset_image_template({image_asset_code: "contact", class: "home-page-image"}) %>
+      <% end %>
+      <%= link_to "Contact Me", contact_pages_path %>
   </div>
   <div class="col-md-3 portfolio-item">
       <%= link_to blogs_path do %>
-        <%= create_asset_image_template({image_asset_code: "Blog", class: "img-responsive"}) %>
+        <%= create_asset_image_template({image_asset_code: "blog", class: "home-page-image"}) %>
       <% end %>
       <%= link_to "Blog", blogs_path %>
   </div>
   <div class="col-md-3 portfolio-item">
       <%= link_to portfolios_path do %>
-        <%= create_asset_image_template({image_asset_code: "portfolio", class: "img-responsive"}) %>
+        <%= create_asset_image_template({image_asset_code: "portfolio", class: "home-page-image"}) %>
       <% end %>
       <%= link_to "Portfolio", portfolios_path %>
   </div>

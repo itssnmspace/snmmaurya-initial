@@ -11,11 +11,20 @@
     </fieldset>
 
     <fieldset class="form-group">
-      <%= form.label "Query", for: "Query" %>
-      <%= form.text_area :title, class: "form-control", placeholder: "Query...." %>
+      <%= form.label "Title", for: "title" %>
+      <%= form.text_field :title, class: "form-control", placeholder: "Title...." %>
     </fieldset>
 
-    <button type="submit" class="btn btn-primary">Query</button>
+    <fieldset class="form-group">
+      <%= form.label "Query", for: "Query" %>
+      <%= form.text_area :description, id: "editor", class: "form-control", placeholder: "Query...." %>
+    </fieldset>
+    <div id="editor-preview">
+      <span id="header"></span>
+      <span id="data"></span>
+    </div>
+
+    <button type="submit" class="btn btn-primary width-hundred-percent">Query</button>
     <% end %>
   </div>
 </div>

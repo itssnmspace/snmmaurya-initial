@@ -1,0 +1,1 @@
+json.array! @rubiests, partial: 'rubiests/rubiest', as: :rubiest
