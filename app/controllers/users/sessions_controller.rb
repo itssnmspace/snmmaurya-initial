@@ -23,10 +23,21 @@ class Users::SessionsController < Devise::SessionsController
   # end
 
   def create
-    binding.pry
-    cookies.signed[:username] = params[:user][:email]
-    redirect_to messages_path
+    resource = User.find_for_database_authentication(email: params[:user][:email])
+    return respond_with_status_message({status: "failed", message: "Invalid Username"}) unless resource
+    if resource.valid_password?(params[:user][:password])
+      if sign_in :user, resource
+        flash[:success] = "Signed in success"
+        respond_with_status_message({status: "success", message: "Signed in success!"})
+      else
+        respond_with_status_message({status: "failed", message: "Invalid Password"})
+      end
+    else
+      respond_with_status_message({status: "failed", message: "Invalid Username or Password"})
+    end
   end
+
+
   # DELETE /resource/sign_out
   def destroy
     signed_out = (Devise.sign_out_all_scopes ? sign_out : sign_out(resource_name))
@@ -35,8 +46,7 @@ class Users::SessionsController < Devise::SessionsController
     respond_to_on_destroy
   end
 
-  protected
-
+protected
   def sign_in_params
     devise_parameter_sanitizer.sanitize(:sign_in)
   end
@@ -56,8 +66,14 @@ class Users::SessionsController < Devise::SessionsController
     'devise.sessions'
   end
 
-  private
+  def respond_with_status_message options={}
+    respond_to do |response|
+      response.html
+      response.js {@options = options}
+    end
+  end
 
+private
   # Check if there is no signed in user before doing the sign out.
   #
   # If there is no signed in user, it will set the flash message and redirect

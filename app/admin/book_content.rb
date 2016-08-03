@@ -15,7 +15,7 @@ ActiveAdmin.register BookContent do
     f.inputs "Details" do
       f.input :book_id, as: :select, collection: Book.active.map{|book| [book.title, book.id]}
       f.input :title
-      f.input :description
+      f.input :description, as: :html_editor
       f.input :status
       f.actions
     end

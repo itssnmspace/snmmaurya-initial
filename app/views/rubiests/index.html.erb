@@ -1,25 +1,18 @@
-<p id="notice"><%= notice %></p>
+<%= render 'shared/header_title', header_title: "Rubiests", header_sub_title: "Programing is fun! as Rubiest" %>
 
-<h1>Rubiests</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
+<!-- Start row -->
+<div class="row">
+  <div class="col-md-4 rubiests-container">
     <% @rubiests.each do |rubiest| %>
-      <tr>
-        <td><%= link_to 'Show', rubiest %></td>
-        <td><%= link_to 'Edit', edit_rubiest_path(rubiest) %></td>
-        <td><%= link_to 'Destroy', rubiest, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+      <%= link_to rubiest.title, rubiest_path(rubiest), class: "rubiests-anchor #{"selected" if @rubiest.id == rubiest.id}" %>
+      <% if rubiest.featured? %>
+        <sup class="featured btn btn-info btn-xs">Featured</sup>
+      <% end %>
+      <hr>
     <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Rubiest', new_rubiest_path %>
+  </div>
+  <div class="col-md-8">
+    <%= @rubiest.try(:description) %>
+  </div>
+</div>
+<!-- /.row -->

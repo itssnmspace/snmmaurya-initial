@@ -16,4 +16,5 @@
 //= require bootstrap
 //= require summernote
 //= require snm
-//= require cable
+//= require bootstrap-datetimepicker
+// require cable

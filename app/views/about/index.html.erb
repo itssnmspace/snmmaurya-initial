@@ -4,21 +4,25 @@
 <div class="row">
   <div class="col-sm-7">
     <h3>Employment</h3>
-    <% @employments.each do |employment| %>
+    <% @employments.each_with_index do |employment, index| %>
       <h5>
-      <%= employment.role %> - <%= employment.name %>(<%#= employment.started_at.to_time.strftime("%Y-%m-%d") %> - <%#= employment.end_at.strftime("%Y-%m-%d") %>)
+      <%= employment.role %> - <%= employment.name %>(<%= datetimeformat(employment.get_started_at) %> - <%= datetimeformat(employment.get_end_at) %>)
       </h5>
       <%= employment.about %>
-      <hr>
+      <% if @employments.count > index + 1 %>
+        <hr>
+      <% end %>
     <% end %>
-
+    <hr>
     <h3>Education</h3>
-    <% @educations.each do |education| %>
+    <% @educations.each_with_index do |education, index| %>
       <h5>
-        <%= education.cource %> - <%= education.college %>(<%#= education.started_at.strftime("%Y-%m-%d") %> - <%#= education.completed.strftime("%Y-%m-%d") %>)
+        <%= education.cource %> - <%= education.college %>(<%= datetimeformat(education.get_started_at) %> - <%= datetimeformat(education.get_end_at) %>)
       </h5>
       <%= education.description %>
-      <hr>
+      <% if @educations.count > index + 1 %>
+        <hr>
+      <% end %>
     <% end %>
     </div>
 

@@ -4,7 +4,7 @@ class ProblemsController < ApplicationController
 
   def index
     topic_id = @topic.id
-    @search = Problem.search do
+    @search = Problem.solr_search do
       fulltext params[:search]
       with :topic_id, topic.id
       order_by :created_at, :desc
@@ -23,6 +23,7 @@ class ProblemsController < ApplicationController
   end
   
   def create
+    binding.pry
     @problem = current_user.problems.new(topic_params)
     if @problem.save
       flash[:success] = "Created Successfully!"

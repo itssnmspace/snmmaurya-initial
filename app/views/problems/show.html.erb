@@ -9,10 +9,7 @@
     <!-- Make Sure Answers Are Available -->
     <% if @solution_counter > 0 %>
       <% @problem.solutions.each_with_index do |solution, index| %>
-        <p>
-          <strong>[#<%= index + 1 %>]</strong>
-          <%= solution.title %>
-        </p>
+        <%= solution.description.try(:html_safe) %>
         <%= render partial: "shared/solution_actions", locals: {solution: solution} %> 
       <% end %>
     <% end %>

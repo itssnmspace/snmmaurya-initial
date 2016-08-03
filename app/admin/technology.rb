@@ -17,7 +17,7 @@ ActiveAdmin.register Technology do
     f.inputs "Details" do
       f.input :technology_type_id, as: :select, collection: TechnologyType.technology_type_options
       f.input :name
-      f.input :description
+      f.input :description, as: :html_editor
       f.input :experience
       f.input :experience_level, as: :select, collection: [["Expert", "Expert"], ["Begginers", "Begginers"]]
       f.input :user_id, as: :select, collection: User.user_options

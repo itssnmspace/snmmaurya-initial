@@ -5,6 +5,8 @@ source 'https://rubygems.org'
 gem 'rails', '~> 5.0.0'
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
+gem 'pg'
+gem 'mysql2'
 # Use Puma as the app server
 gem 'puma', '~> 3.0'
 # Use SCSS for stylesheets
@@ -30,9 +32,13 @@ gem 'jbuilder', '~> 2.5'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
+gem 'rspec-rails'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri
+  gem 'factory_girl_rails'
+  gem 'capybara'
 end
 
 group :development do
@@ -65,6 +71,7 @@ gem 'omniauth-linkedin'
 
 #Solr Search
 gem 'sunspot_rails'
+gem 'progress_bar'
 
 #Seo Setting gems
 gem 'metamagic'
@@ -80,3 +87,5 @@ gem 'inherited_resources', github: 'activeadmin/inherited_resources'
 gem 'ransack',             github: 'activerecord-hackery/ransack'
 gem 'draper',              '> 3.x'
 gem 'kaminari'
+gem 'active_admin_datetimepicker'
+gem 'active_admin_editor', github: 'ejholmes/active_admin_editor'

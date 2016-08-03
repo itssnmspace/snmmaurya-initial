@@ -15,7 +15,7 @@ ActiveAdmin.register Solution do
     f.semantic_errors *f.object.errors.keys
     f.inputs "Details" do
       f.input :title
-      f.input :description
+      f.input :description, as: :html_editor
       f.has_many :images, allow_destroy: true do |ff|
         ff.input :data, as: :file, label: "Image", hint: image_tag(ff.object.data.url(:thumb))
       end
