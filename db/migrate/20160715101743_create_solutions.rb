@@ -1,8 +1,8 @@
 class CreateSolutions< ActiveRecord::Migration
   def change
     create_table :solutions do |t|
-    	t.text :title
-    	t.string :description
+    	t.string :title
+    	t.text :description
       t.belongs_to :problem, index: true
       t.boolean :correct, default: true
       t.integer :position

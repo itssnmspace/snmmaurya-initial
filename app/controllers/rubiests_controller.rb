@@ -1,15 +1,22 @@
 class RubiestsController < ApplicationController
-  before_action :set_rubiest, only: [:show, :edit, :update, :destroy]
+  before_action :set_rubiest, only: [:edit, :update, :destroy]
 
   # GET /rubiests
   # GET /rubiests.json
   def index
     @rubiests = Rubiest.all
+    if @rubiests.present?
+      @rubiest = Rubiest.friendly.find(params[:id].present? ? params[:id] : @rubiests.first)
+    end
   end
 
   # GET /rubiests/1
   # GET /rubiests/1.json
   def show
+    @rubiests = Rubiest.all
+    if @rubiests.present?
+      @rubiest = Rubiest.friendly.find(params[:id].present? ? params[:id] : @rubiests.first)
+    end
   end
 
   # GET /rubiests/new

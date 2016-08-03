@@ -4,7 +4,12 @@ module ApplicationHelper
     if image.present?
       image_tag image.data.url(:medium), class: options[:class], id: options[:id], alt: image.title
     else
-      image_tag "static_images/default.jpg", class: options[:class], id: options[:id], alt: "SnmMaurya"
+      image = ImageAsset.image_asset_by_code("default_image_asset")
+      if image.present?
+        image_tag image.data.url(:medium), class: options[:class], id: options[:id], alt: image.title
+      else
+        image_tag "static_images/default.jpg", class: options[:class], id: options[:id], alt: "SnmMaurya"
+      end
     end
   end
 
@@ -33,4 +38,13 @@ module ApplicationHelper
   def create_flash_message_and_class
     flash[:success].present? ? [flash[:success], "success"] : (flash[:notice].present? ? [flash[:notice], "success"] : [flash[:error], "danger"])
   end
+
+  def datetimeformat datetime, format=1
+    case format
+      when 1
+        datetime.strftime("%b %d, %Y")
+      else
+        datetime.strftime("%b %d, %Y")
+    end  
+  end  
 end

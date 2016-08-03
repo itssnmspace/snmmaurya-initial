@@ -20,3 +20,15 @@ end
     User.create!(username: user.split("@").first, email: user, contact: '7666760715', role_id: Role.find_by(title: 'user').id, slug: user.split("@").first, password: 'snmmaurya', password_confirmation: 'snmmaurya')
   end
 end
+
+
+
+#***************************************Image Assets*************************************************
+#Landing page image creation
+["default_image_asset", "solutions", "programing_is_fun!_as_rubiest", "about", "contact", "blog", "portfolio"].each do |code|
+  unless ImageAsset.find_by code: code
+    image_asset = ImageAsset.new(code: code, title: code.humanize, action: "#", target: "_blnk")
+    image_asset.save(validate: false)
+  end
+end
+#***************************************Image Assets*************************************************

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160802103545) do
+ActiveRecord::Schema.define(version: 20160803072718) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace"
@@ -110,16 +110,28 @@ ActiveRecord::Schema.define(version: 20160802103545) do
   create_table "employments", force: :cascade do |t|
     t.string   "name"
     t.string   "location"
-    t.string   "about"
+    t.string   "description"
     t.string   "url"
     t.string   "started_at"
     t.string   "end_at"
     t.integer  "user_id"
-    t.string   "role",       default: "Software Engineer"
-    t.boolean  "status",     default: true
+    t.string   "role",        default: "Software Engineer"
+    t.boolean  "status",      default: true
     t.integer  "position"
-    t.datetime "created_at",                               null: false
-    t.datetime "updated_at",                               null: false
+    t.datetime "created_at",                                null: false
+    t.datetime "updated_at",                                null: false
+  end
+
+  create_table "friendly_id_slugs", force: :cascade do |t|
+    t.string   "slug",                      null: false
+    t.integer  "sluggable_id",              null: false
+    t.string   "sluggable_type", limit: 50
+    t.string   "scope"
+    t.datetime "created_at"
+    t.index ["slug", "sluggable_type", "scope"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type_and_scope", unique: true
+    t.index ["slug", "sluggable_type"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type"
+    t.index ["sluggable_id"], name: "index_friendly_id_slugs_on_sluggable_id"
+    t.index ["sluggable_type"], name: "index_friendly_id_slugs_on_sluggable_type"
   end
 
   create_table "image_assets", force: :cascade do |t|
@@ -162,8 +174,8 @@ ActiveRecord::Schema.define(version: 20160802103545) do
   end
 
   create_table "problems", force: :cascade do |t|
-    t.text     "title"
-    t.string   "description"
+    t.string   "title"
+    t.text     "description"
     t.integer  "topic_id"
     t.boolean  "featured",    default: true
     t.boolean  "correct",     default: true
@@ -230,8 +242,8 @@ ActiveRecord::Schema.define(version: 20160802103545) do
   end
 
   create_table "solutions", force: :cascade do |t|
-    t.text     "title"
-    t.string   "description"
+    t.string   "title"
+    t.text     "description"
     t.integer  "problem_id"
     t.boolean  "correct",     default: true
     t.integer  "position"

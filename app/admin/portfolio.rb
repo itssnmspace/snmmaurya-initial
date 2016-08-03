@@ -20,7 +20,7 @@ ActiveAdmin.register Portfolio do
       f.input :title
       f.input :url
       f.input :tools
-      f.input :description
+      f.input :description, as: :html_editor
       f.has_many :images, allow_destroy: true do |ff|
         ff.input :data, as: :file, label: "Image", hint: image_tag(ff.object.data.url(:thumb))
       end

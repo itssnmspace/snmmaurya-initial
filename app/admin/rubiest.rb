@@ -1,14 +1,14 @@
-ActiveAdmin.register Blog do
+ActiveAdmin.register Rubiest do
   menu parent: "Master"
-  permit_params :title, :description, :user_id, :status, :featured
+
+  permit_params :title, :description, :status, :featured
 
   index do
     column :id
     column :title
-    column :description
-    column :user do |blog|
-      blog.user.try(:username)
-    end
+    column :description do |rubiest|
+      rubiest.description.truncate(100)
+    end  
     column :featured
     column :status
     actions
@@ -17,14 +17,13 @@ ActiveAdmin.register Blog do
   form :html => { :enctype => "multipart/form-data" } do |f|
     f.semantic_errors *f.object.errors.keys
     f.inputs "Details" do
-      f.input :title
+      f.input :title, as: :string
       f.input :description, as: :html_editor
       f.input :featured
-      f.input :user_id, as: :select, collection: User.user_options
       f.input :status
       f.actions
     end
   end
 
-  filter :cource
+  filter :title
 end

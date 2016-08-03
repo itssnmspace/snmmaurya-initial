@@ -1,5 +1,5 @@
 <% if @options[:status] == "failed" %>
-  SnmJS.custom.cunstructFlashMessageController("signin-error", "error", "<%= @options[:message] %>");
+  SnmJS.custom.cunstructErrorMessageController("signin-error", "error", "<%= @options[:message] %>");
 <% else %>
   window.location.href = "<%= root_path %>"
 <% end %>
