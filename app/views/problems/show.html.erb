@@ -4,7 +4,11 @@
 <!-- Intro Content -->
 <div class="row">
   <div class="col-sm-12">
-    <h3><%= @problem.title %> Solutions#<%= @solution_counter %></h3>
+    <div class="text-title"><%= @problem.title %></div>
+    <div class="text-description"><%= @problem.description.html_safe %></div>
+    <div class="col-sm-12 text-right">
+      <%= render partial: "problems/informations", locals: {datetime: @problem.created_at, user: @problem.user, counter: @solution_counter } %>
+    </div>
     <hr>
     <!-- Make Sure Answers Are Available -->
     <% if @solution_counter > 0 %>

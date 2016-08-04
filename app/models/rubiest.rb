@@ -1,8 +1,11 @@
 class Rubiest < ApplicationRecord
+  include FinderConcern
 
   def featured?
     self.featured
   end
+
+  scope :active, -> {where(status: true)}
 
   #****************************************************************************#
   #START Seo Related Functions

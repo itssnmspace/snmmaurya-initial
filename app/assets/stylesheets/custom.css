@@ -24,6 +24,7 @@ footer {
 
 .topic-anchor-container .anchor-container{
   margin-right: 5px;
+  text-align: center;
 }
 /* Custom css COMMON CSS */
 .right-border{
@@ -62,6 +63,9 @@ footer {
 .error{
  color: #a94442;
 }
+.border-one{
+  border: 1px solid #708090;
+}
 .bg-color-green-one{
   background-color: #dff0d8;
 }
@@ -73,6 +77,16 @@ footer {
 }
 .featured{
   font-size: 10px;
+}
+.text-title{
+  font-weight: bold;
+}
+.text-description{
+  font-weight: normal;
+}
+.text-information{
+  font-size: 12px;
+  font-style: italic;
 }
 /* END Custom css COMMON CSS */
 
@@ -98,7 +112,20 @@ footer {
 }
 /* END Custom css for Rubiest */
 
+.main-link{
+  display: block;
+  padding: 10px;
+}
+@media (min-width: 1022px) {
+  .mine-info-container{
+    text-align: left;
+  }
+}
 
+@media (max-width: 767px) {
+
+}  
+display: block;
 .home-page-image{
   height: 200px;
   width: 250px;
@@ -106,4 +133,8 @@ footer {
 .profile-image{
   height: 250px;
   width: 300px;
+}
+.home-page-image{
+  height: 200px;
+    width: 300px;
 }

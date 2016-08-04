@@ -43,6 +43,8 @@ module ApplicationHelper
     case format
       when 1
         datetime.strftime("%b %d, %Y")
+      when 2
+        datetime.strftime("%H:%M %b %d, %Y")
       else
         datetime.strftime("%b %d, %Y")
     end  

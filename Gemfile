@@ -39,6 +39,7 @@ group :development, :test do
   gem 'byebug', platform: :mri
   gem 'factory_girl_rails'
   gem 'capybara'
+  gem 'rails-controller-testing'
 end
 
 group :development do
@@ -89,3 +90,7 @@ gem 'draper',              '> 3.x'
 gem 'kaminari'
 gem 'active_admin_datetimepicker'
 gem 'active_admin_editor', github: 'ejholmes/active_admin_editor'
+
+
+# Heroku Deployment
+gem 'rails_12factor', group: :production

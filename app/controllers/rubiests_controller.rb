@@ -4,7 +4,7 @@ class RubiestsController < ApplicationController
   # GET /rubiests
   # GET /rubiests.json
   def index
-    @rubiests = Rubiest.all
+    @rubiests = Rubiest.all.page(params[:page]).per(10)
     if @rubiests.present?
       @rubiest = Rubiest.friendly.find(params[:id].present? ? params[:id] : @rubiests.first)
     end
@@ -13,7 +13,7 @@ class RubiestsController < ApplicationController
   # GET /rubiests/1
   # GET /rubiests/1.json
   def show
-    @rubiests = Rubiest.all
+    @rubiests = Rubiest.all.page(params[:page]).per(10)
     if @rubiests.present?
       @rubiest = Rubiest.friendly.find(params[:id].present? ? params[:id] : @rubiests.first)
     end

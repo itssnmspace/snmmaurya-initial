@@ -37,6 +37,9 @@ SnmJS = (function($, window, document, snm){
       $("#signin-modal").on("show.bs.modal", function(e) {
         $(this).find(".modal-content").load($(e.relatedTarget).attr("href"));
       });
+      if(window.location.href.indexOf("signin=true") > 0){
+        $("#signin").trigger("click");
+      }
     },
 
     BlogAdvanceSearchModalController: function(){

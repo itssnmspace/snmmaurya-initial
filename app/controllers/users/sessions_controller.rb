@@ -10,7 +10,11 @@ class Users::SessionsController < Devise::SessionsController
     self.resource = resource_class.new(sign_in_params)
     clean_up_passwords(resource)
     yield resource if block_given?
-    render layout: false
+    if request.xhr?
+      render layout: false
+    else
+      redirect_to root_path(signin: true)
+    end
   end
 
   # POST /resource/sign_in
@@ -30,10 +34,10 @@ class Users::SessionsController < Devise::SessionsController
         flash[:success] = "Signed in success"
         respond_with_status_message({status: "success", message: "Signed in success!"})
       else
-        respond_with_status_message({status: "failed", message: "Invalid Password"})
+        respond_with_status_message({status: "failed", message: "Invalid Username or Password"})
       end
     else
-      respond_with_status_message({status: "failed", message: "Invalid Username or Password"})
+      respond_with_status_message({status: "failed", message: "Invalid Password"})
     end
   end
 
@@ -68,7 +72,7 @@ protected
 
   def respond_with_status_message options={}
     respond_to do |response|
-      response.html
+      response.html {redirect_to root_path}
       response.js {@options = options}
     end
   end

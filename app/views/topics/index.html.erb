@@ -2,6 +2,7 @@
 
 <!-- Start row -->
 <div class="row">
+<div class="col-md-12">
   <% @topics.each do |topic| %>
     <div class="col-md-6 portfolio-item text-center snm-height-four">
       <a href="<%= topic_problems_path(topic) %>">
@@ -11,9 +12,10 @@
         <%= link_to topic.title, topic_problems_path(topic) %>
       </h3>
       <p>
-        <%= topic.description %>
+        <%= topic.description.truncate(250) %>
       </p>
     </div>
   <% end %>
+</div>
 </div>
 <!-- /.row -->

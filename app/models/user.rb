@@ -2,6 +2,7 @@ class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   include UserConcern
+  include FinderConcern
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
@@ -28,6 +29,11 @@ class User < ApplicationRecord
 
   accepts_nested_attributes_for :profiles, allow_destroy: true
   accepts_nested_attributes_for :images, allow_destroy: true
+
+
+  validates :email, :username, presence: true
+  validates :email, :username, uniqueness: true
+  validates :email, format: { with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i }
 
   def master?
     self.role.try(:title) == "master"

@@ -1,4 +1,6 @@
 class Blog < ApplicationRecord
+  include FinderConcern
+
   belongs_to :user
   has_many :comments
 
