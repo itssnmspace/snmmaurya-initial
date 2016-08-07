@@ -42,6 +42,8 @@ environment ENV.fetch("RAILS_ENV") { "development" }
 # on_worker_boot do
 #   ActiveRecord::Base.establish_connection if defined?(ActiveRecord)
 # end
+#Bind to use unix socket in case of nginx
+bind 'unix:///tmp/snmmaurya.sock'
 
 # Allow puma to be restarted by `rails restart` command.
 plugin :tmp_restart

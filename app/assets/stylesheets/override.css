@@ -1,3 +1,13 @@
+/*!
+* Bootstrap - 3
+* Code licensed under the Apache License v2.0. for more details visit to http://www.apache.org/licenses/LICENSE-2.0.
+*/
+
+/*
+* All override css based on bootstrap 3
+* Overriding to modify default styles of bootstrap
+*/
+
 a{
   text-decoration: none !important;
   color: #008080 !important;
@@ -6,6 +16,7 @@ a:hover{
   /*color: #123456 !important;*/
   font-weight: bold;
   font-style: italic;
+  cursor: pointer;
 }
 .flash_message{
   margin-top: -20px;

@@ -3,10 +3,10 @@ class Education < ApplicationRecord
   scope :active, -> {where(status: true)}
 
   def get_started_at
-    self.started_at.to_datetime
+    self.started_at
   end
 
-  def get_end_at
-    self.started_at.to_datetime
+  def get_completed_at
+    self.completed_at
   end
 end

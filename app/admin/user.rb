@@ -1,6 +1,11 @@
 ActiveAdmin.register User do
   menu parent: "Master"
-  permit_params :email, :username, :password, :password_confirmation, images_attributes: [:id, :data, :_destroy], profiles_attributes: [:id, :first_name, :last_name, :contact, :email, :about, :address_line_one, :address_line_two, :address_line_three, :city, :state, :pin_code, :my_country, :status, :position, :_destroy] 
+  permit_params :email, :username, :password, :password_confirmation, :resume_pdf, :resume_doc, images_attributes: [:id, :data, :_destroy], profiles_attributes: [:id, :first_name, :last_name, :contact, :email, :about, :address_line_one, :address_line_two, :address_line_three, :city, :state, :pin_code, :my_country, :status, :position, :_destroy] 
+  
+  action_item :only => :index do
+    link_to 'Download Users', downloader_downloads_path
+  end
+
   index do
     column :id
     column :email
@@ -15,6 +20,8 @@ ActiveAdmin.register User do
       f.input :username
       f.input :password
       f.input :password_confirmation
+      f.input :resume_pdf, as: :file, label: "Resume PDF", hint: image_tag(f.object.resume_pdf.url(:thumb))
+      # f.input :resume_doc, as: :file, label: "Image", hint: image_tag(f.object.resume_doc.url(:thumb))
       f.has_many :images, allow_destroy: true do |ff|
         ff.input :data, as: :file, label: "Image", hint: image_tag(ff.object.data.url(:thumb))
       end

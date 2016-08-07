@@ -1,7 +1,11 @@
 /*!
-* Start Bootstrap - 3 Col Portfolio HTML Template (http://startbootstrap.com)
-* Code licensed under the Apache License v2.0.
-* For details, see http://www.apache.org/licenses/LICENSE-2.0.
+* Bootstrap - 3
+* Code licensed under the Apache License v2.0. for more details visit to http://www.apache.org/licenses/LICENSE-2.0.
+*/
+
+/*
+* All custom css based on bootstrap 3
+* Creating newely styles
 */
 
 body {
@@ -87,6 +91,7 @@ footer {
 .text-information{
   font-size: 12px;
   font-style: italic;
+  display: inline;
 }
 /* END Custom css COMMON CSS */
 
@@ -105,27 +110,15 @@ footer {
 
 
 /* Custom css for Rubiest */
-.rubiests-container .rubiests-anchor.selected{
+.rubiests-anchor.selected, .lessions-anchor.selected{
   color: #123456;
   font-weight: bold;
   font-style: italic;
 }
 /* END Custom css for Rubiest */
 
-.main-link{
-  display: block;
-  padding: 10px;
-}
-@media (min-width: 1022px) {
-  .mine-info-container{
-    text-align: left;
-  }
-}
 
-@media (max-width: 767px) {
-
-}  
-display: block;
+/* Custom css for profile main page */
 .home-page-image{
   height: 200px;
   width: 250px;
@@ -136,5 +129,18 @@ display: block;
 }
 .home-page-image{
   height: 200px;
-    width: 300px;
+  width: 250px;
 }
+.main-link{
+  display: block;
+  padding: 10px;
+}
+@media (min-width: 1022px) {
+  .mine-info-container{
+    text-align: left;
+  }
+}
+@media (max-width: 767px) {
+
+}
+/* END Custom css for profile main page */

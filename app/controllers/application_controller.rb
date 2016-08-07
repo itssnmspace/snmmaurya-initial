@@ -11,4 +11,15 @@ class ApplicationController < ActionController::Base
     @user = User.find_by(role_id: 1)
     @user_profile = @user.profiles.try(:last)
   end
+
+  # def set_origin
+  #   binding.pry
+  #   if signin_request?
+  #     session[:origin] = request.referer
+  #   end 
+  # end
+
+  # def signin_request?
+  #   request.original_url.include?("sign_in") || request.original_url.include?("signin") 
+  # end
 end

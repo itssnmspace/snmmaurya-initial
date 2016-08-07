@@ -11,7 +11,7 @@
         <%= link_to "Your Solution", new_topic_problem_solution_path(@topic, @problem, @solution), class: "topic-anchor", remote: true %>
       </div>
     <% end %>
-    <% if params[:action] == "index" && params[:controller] == "problems" %>
+    <% if params[:controller] == "problems" %>
     <div class="col-sm-3 border-one anchor-container">
       <form action="" class="navbar-form" role="search">
         <div class="input-group add-on">

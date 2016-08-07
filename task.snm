@@ -1,22 +1,48 @@
-Solr Search
+================================================================================
+Task List:
+--------------------------------------------------------------------------------
+1) Solr Search
 
-Active Admin Setup
+2) Active Admin Setup
 
-Paperclip + aws
-Ruby#11$@Development
+3) Paperclip + aws
+
+4) Devise Authentication System
+
+5) sidekick
+
+6) rspec
+
+7) Associations Queries
+
+8) 8.1) nginx + puma  8.2) nginix + unicorn
+
+9) aws deployment
 
 
-Devise Authentication System
+================================================================================
 
-Associations Queries
 
-aws deployment
 
-nginix and app server
 
-sidekick
+================================================================================
+Completed:
+--------------------------------------------------------------------------------
+1) Solr Search
 
-rspec
+2) Active Admin Setup
+
+3) Paperclip + aws
+
+4) Devise Authentication System
+
+5) sidekick
+
+6) rspec
+
+================================================================================
+
+
 https://www.relishapp.com/rspec/rspec-rails/v/2-4/docs/
 
 https://www.youtube.com/watch?v=gsgG-JvXsJ0

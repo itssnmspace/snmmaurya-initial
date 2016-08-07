@@ -1,14 +1,14 @@
-<%= render 'shared/header_title', header_title: "About Me", header_sub_title: "All professional things about me!" %>
-
+<%= render 'shared/header_title', header_title: "", header_sub_title: "Education / Professional / Technologies All about me!" %>
+<%= render "shared/meta_data" %>
 <!-- Intro Content -->
 <div class="row">
   <div class="col-sm-7">
     <h3>Employment</h3>
     <% @employments.each_with_index do |employment, index| %>
       <h5>
-      <%= employment.role %> - <%= employment.name %>(<%= datetimeformat(employment.get_started_at) %> - <%= datetimeformat(employment.get_end_at) %>)
+      <%= employment.role %> - <%= employment.name %> (<%= datetimeformat(employment.get_started_at) %> - <%= datetimeformat(employment.get_end_at) %>)
       </h5>
-      <%= employment.about %>
+      <%= employment.description %>
       <% if @employments.count > index + 1 %>
         <hr>
       <% end %>
@@ -17,7 +17,7 @@
     <h3>Education</h3>
     <% @educations.each_with_index do |education, index| %>
       <h5>
-        <%= education.cource %> - <%= education.college %>(<%= datetimeformat(education.get_started_at) %> - <%= datetimeformat(education.get_end_at) %>)
+        <%= education.cource %> - <%= education.college %>(<%= datetimeformat(education.get_started_at) %> - <%= datetimeformat(education.get_completed_at) %>)
       </h5>
       <%= education.description %>
       <% if @educations.count > index + 1 %>

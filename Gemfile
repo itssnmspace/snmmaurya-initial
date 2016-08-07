@@ -94,3 +94,31 @@ gem 'active_admin_editor', github: 'ejholmes/active_admin_editor'
 
 # Heroku Deployment
 gem 'rails_12factor', group: :production
+
+
+gem "sidekiq"
+gem 'sinatra', github: 'sinatra', require: false 
+gem 'rack-protection', github: 'sinatra/rack-protection', require: false
+
+group :development do
+  gem 'capistrano',         require: false
+  gem "net-ssh"
+  gem 'capistrano-rvm',     require: false
+  gem 'capistrano-rails',   require: false
+  gem 'capistrano-bundler', require: false
+  gem 'capistrano3-puma',   require: false
+end
+
+# # gem 'capistrano'
+# # gem 'capistrano-rvm'
+# # gem 'capistrano-bundler'
+# # gem 'capistrano-rails'
+
+# gem 'capistrano'
+# gem 'capistrano-ext'
+# gem 'capistrano-bundler'
+# gem 'capistrano-rails'
+# # Add this if you're using rbenv
+# gem 'capistrano-rbenv'
+# # Add this if you're using rvm
+# gem 'capistrano-rvm'

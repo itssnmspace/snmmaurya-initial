@@ -31,3 +31,4 @@ config/environments/*.local.yml
 *.orig
 config/settings.yml
 config/aws.yml
+/solr/

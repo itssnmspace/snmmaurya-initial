@@ -1,5 +1,5 @@
 ActiveAdmin.register TechnologyType do
-  menu parent: "Master"
+  menu parent: "Profiles"
 
   permit_params :title, :status, :position
 

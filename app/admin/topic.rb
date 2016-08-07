@@ -1,5 +1,5 @@
 ActiveAdmin.register Topic do
-  menu parent: "Master"
+  menu parent: "Solutions"
 
   permit_params :title, :description, :position, :status, images_attributes: [:id, :data, :_destroy]
 
