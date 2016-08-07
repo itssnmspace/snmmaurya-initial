@@ -1,5 +1,5 @@
 ActiveAdmin.register Portfolio do
-  menu parent: "Master"
+  menu parent: "Profiles"
 
   permit_params :title, :tools, :url, :description, :user, images_attributes: [:id, :data, :_destroy]
 

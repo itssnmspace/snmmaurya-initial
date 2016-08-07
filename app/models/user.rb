@@ -2,6 +2,7 @@ class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   include UserConcern
+  include FinderConcern
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
@@ -28,6 +29,26 @@ class User < ApplicationRecord
 
   accepts_nested_attributes_for :profiles, allow_destroy: true
   accepts_nested_attributes_for :images, allow_destroy: true
+
+
+  validates :email, :username, presence: true
+  validates :email, :username, uniqueness: true
+  validates :email, format: { with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i }
+
+
+  has_attached_file :resume_pdf,
+  :storage => :s3,
+  :s3_region => "ap-south-1",
+  :s3_credentials => "#{::Rails.root.to_s}/config/aws.yml",
+  :s3_permissions => "public-read",
+  :url => ':s3_alias_url',
+  :path => "/:class/:attachment/:id_partition/:style/:filename",
+  :s3_host_alias => Settings.cloud_front_url,
+  :s3_protocol => :https,
+  :s3_headers => {'Expires' => (Time.now + 60*60*24*30*12).httpdate}
+
+  validates_attachment :resume_pdf, :content_type => { :content_type => %w(application/pdf application/msword application/vnd.openxmlformats-officedocument.wordprocessingml.document) }
+
 
   def master?
     self.role.try(:title) == "master"

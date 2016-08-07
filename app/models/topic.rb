@@ -1,4 +1,6 @@
 class Topic < ApplicationRecord
+  include FinderConcern
+
   has_many :images, as: :imageable
   has_many :problems
   accepts_nested_attributes_for :images, allow_destroy: true
@@ -36,5 +38,13 @@ class Topic < ApplicationRecord
       send "#{friendly_id_config.slug_column}=", slug
     end
   end
-#****************************************************************************# 
+#****************************************************************************#
+
+  # def self.find topic_id
+  #   if topic_id.is_a? Numeric
+  #     Topic.find_by id: topic_id
+  #   else
+  #     Topic.find_by slug: topic_id
+  #   end  
+  # end  
 end

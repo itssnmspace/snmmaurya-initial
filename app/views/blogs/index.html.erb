@@ -1,4 +1,4 @@
-<%= render 'shared/header_title', header_title: "Blogs", header_sub_title: "Blog a post and comment system!" %>
+<%= render 'shared/header_title', header_title: "", header_sub_title: "Feel free to comment on any blog!" %>
 
 <div class="row">
   <div class="col-lg-10">
@@ -10,7 +10,7 @@
             <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
           </button>
         </span>
-      </div><!-- /input-group -->
+      </div>
     </form>
   </div>
   <div class="col-lg-2 text-right">
@@ -23,18 +23,17 @@
     <% @blogs.each do |blog| %>
       <div class="col-sm-12">
         <p>
-          <p><h3><%= blog.title %></h3>
-          <%= truncate(blog.description, length: 250) %></p>
+          <p>
+            <h3>
+            <%= link_to blog_path(blog) do %>
+              <%= blog.title %>
+            <% end %>
+            </h3>
+            <%= truncate(blog.description, length: 250) %>
+          </p>
           <div class="col-sm-12 text-right">
-          <%= link_to "View More", blog_path(blog) %> |
-          <% if can? :update, blog %>
-            <%= link_to "Edit", edit_blog_path(blog) %> |
-          <% end %>
-          <% if can? :destroy, blog %>
-            <%= link_to "Destroy", blog_path(blog), method: :destroy, data: {confirmation: "Are you sure?"} %> | 
-          <% end %>
-          By <%= link_to blog.user.try(:username), "#" %>
-          </div>
+          <%= render partial: "blogs/informations", locals: {datetime: blog.created_at, user: blog.user, counter: blog.comments.count } %>
+        </div>
         </p>
         <hr>
       </div>

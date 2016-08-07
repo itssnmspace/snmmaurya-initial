@@ -3,7 +3,7 @@
   <h3 class="modal-title text-center">SIGN IN</h4>
 </div>
 <div class="modal-body">
-<div class="error"></div>
+<div class="signin-error error"></div>
 <%= form_for(resource, as: resource_name, url: session_path(resource_name), remote: true) do |form| %>
   <fieldset class="form-group">
     <%= form.label :email %><br />
@@ -23,7 +23,7 @@
   <% end -%>
 
   <div class="actions">
-    <%= form.submit "Log in", class: "btn btn-primary width-hundred-percent" %>
+    <%= form.submit "Log in", class: "btn btn-primary width-hundred-percent", id: "signin" %>
   </div>
 <% end %>
 

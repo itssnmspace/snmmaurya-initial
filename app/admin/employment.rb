@@ -1,5 +1,5 @@
 ActiveAdmin.register Employment do
-  menu parent: "Master"
+  menu parent: "Profiles"
   permit_params :name, :location, :description, :started_at, :end_at, :user_id, :status
 
   index do

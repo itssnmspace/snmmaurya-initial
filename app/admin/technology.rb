@@ -1,5 +1,5 @@
 ActiveAdmin.register Technology do
-  menu parent: "Master"
+  menu parent: "Profiles"
 
   permit_params :technology_type_id, :name, :description, :experience, :experience_level, :user_id, :status, :position
 

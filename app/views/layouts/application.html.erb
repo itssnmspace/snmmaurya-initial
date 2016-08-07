@@ -1,9 +1,11 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Snmmaurya</title>
+    <!-- Default meta data setting if page has not meta data -->
+    <% meta_options = default_meta_data %>
+    <%= metamagic title: meta_options[:title], description: meta_options[:description], keywords: meta_options[:keywords] %>
     <%= csrf_meta_tags %>
-
+    
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>

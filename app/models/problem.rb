@@ -1,8 +1,11 @@
 class Problem < ApplicationRecord
+  include FinderConcern
+
   has_one :user_problem
   has_one :user, through: :user_problem, dependent: :destroy
 
   has_many :solutions, dependent: :destroy
+  belongs_to :topic
 
   validates :title, presence: true
 

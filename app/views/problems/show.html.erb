@@ -1,16 +1,25 @@
-<%= render 'shared/header_title', header_title: "Questions", header_sub_title: "Questions related to #{@topic.title}" %>
+<%= render 'shared/header_title', header_title: "", header_sub_title: "Problem / Solutions related to #{@topic.title}" %>
 
 <%= render "shared/solution_anchors" %>
 <!-- Intro Content -->
 <div class="row">
   <div class="col-sm-12">
-    <h3><%= @problem.title %> Solutions#<%= @solution_counter %></h3>
+    <div class="text-title"><%= @problem.title %></div>
+    <div class="spacer-20 clear"></div>
+    <div class="text-description"><%= @problem.description.html_safe %></div>
+    <div class="col-sm-12 text-right">
+      <%= render partial: "problems/informations", locals: {datetime: @problem.created_at, user: @problem.user, counter: @solution_counter } %>
+    </div>
     <hr>
     <!-- Make Sure Answers Are Available -->
     <% if @solution_counter > 0 %>
       <% @problem.solutions.each_with_index do |solution, index| %>
         <%= solution.description.try(:html_safe) %>
-        <%= render partial: "shared/solution_actions", locals: {solution: solution} %> 
+        
+        <div class="col-sm-12 text-right">
+          <%= render partial: "problems/solution_actions", locals: {solution: solution} %>
+          <%= render partial: "problems/informations", locals: {datetime: solution.created_at, user: solution.user } %>
+        </div>
       <% end %>
     <% end %>
   </div>

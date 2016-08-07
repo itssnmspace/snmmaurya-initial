@@ -1,5 +1,5 @@
 ActiveAdmin.register Education do
-  menu parent: "Master"
+  menu parent: "Profiles"
   permit_params :cource, :college, :location, :description, :user_id, :started_at, :completed_at, :status, :position
 
   index do

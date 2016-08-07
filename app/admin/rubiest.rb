@@ -1,5 +1,5 @@
 ActiveAdmin.register Rubiest do
-  menu parent: "Master"
+  menu parent: "Rubiest"
 
   permit_params :title, :description, :status, :featured
 

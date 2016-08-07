@@ -43,8 +43,30 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :downloads, only: :index do
+    collection do
+      get :downloader
+    end
+  end
+
   resources :messages
+  resources :studies do
+    resources :lessions
+  end
+
+
+  resources :users do
+    member do
+      get :problems
+      get :solutions
+    end
+  end
+
   #action cable running status
   mount ActionCable.server => '/cable'
+
+  #Sidekiq on web
+  require 'sidekiq/web'
+  mount Sidekiq::Web, at: '/sidekiq'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

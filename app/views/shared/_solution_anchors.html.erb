@@ -1,18 +1,18 @@
 <div class="row topic-anchor-container">
   <div class="col-sm-12">
-    <div class="col-sm-2 bg-color-green-one anchor-container">
+    <div class="col-sm-2 border-one anchor-container">
       <%= link_to "Have a problem?", new_topic_problem_path(@topic), class: "topic-anchor" %>
     </div>
-    <div class="col-sm-2 bg-color-green-one anchor-container">
-      <%= link_to "Unsolved problems", topic_problems_path(@topic, {problem: :unsolved}), class: "topic-anchor" %>
+    <div class="col-sm-2 border-one anchor-container">
+      <%= link_to "Problems", topic_problems_path(@topic), class: "topic-anchor" %>
     </div>
     <% if params[:controller] == "problems" && params[:action] == "show" %>
-      <div class="col-sm-2 bg-color-green-one anchor-container">
+      <div class="col-sm-2 border-one anchor-container">
         <%= link_to "Your Solution", new_topic_problem_solution_path(@topic, @problem, @solution), class: "topic-anchor", remote: true %>
       </div>
     <% end %>
-    <% if params[:action] == "index" && params[:controller] == "problems" %>
-    <div class="col-sm-3 bg-color-green-one anchor-container">
+    <% if params[:controller] == "problems" %>
+    <div class="col-sm-3 border-one anchor-container">
       <form action="" class="navbar-form" role="search">
         <div class="input-group add-on">
           <input class="form-control" placeholder="Search" name="search" id="search" type="text" value="<%= params[:search] %>">

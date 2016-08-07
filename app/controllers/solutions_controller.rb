@@ -1,6 +1,6 @@
 class SolutionsController < ApplicationController
-  before_action :topic, :problem
   before_action :authenticate_user!, except: [:index, :show]
+  before_action :topic, :problem
 
   def new
     @solution = Solution.new

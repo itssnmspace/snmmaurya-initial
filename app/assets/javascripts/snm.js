@@ -1,3 +1,10 @@
+/*-
+* Custom Js methods are binded under namespace
+* You can't acccess any method without namespace
+* To access a method just type -- SnmJs.custom.methodname(<parameters>)
+* Methods are relating to control common product behaviour
+-*/
+
 var SnmJS = SnmJS || {};
 SnmJS = (function($, window, document, snm){
   snm.custom ={
@@ -37,6 +44,9 @@ SnmJS = (function($, window, document, snm){
       $("#signin-modal").on("show.bs.modal", function(e) {
         $(this).find(".modal-content").load($(e.relatedTarget).attr("href"));
       });
+      if(window.location.href.indexOf("signin=true") > 0){
+        $("#signin").trigger("click");
+      }
     },
 
     BlogAdvanceSearchModalController: function(){

@@ -1,4 +1,4 @@
-<%= render 'shared/header_title', header_title: "Questions", header_sub_title: "Questions related to #{@topic.title}" %>
+<%= render 'shared/header_title', header_title: "", header_sub_title: "Specify your problem related to #{@topic.title}" %>
 
 <%= render "shared/solution_anchors" %>
 <!-- Intro Content -->
@@ -7,7 +7,7 @@
     <%= form_for [:topic, @problem] do |form| %>
      <fieldset class="form-group">
       <%= form.label "Related To Language", for: "topic" %>
-      <%= form.select :topic_id, Topic.topic_options, {:include_blank => "Select a Category"}, {:class => "form-control"} %>
+      <%= form.select :topic_id, options_for_select(Topic.topic_options, @topic.id), {}, {:class => "form-control"} %>
     </fieldset>
 
     <fieldset class="form-group">
@@ -24,7 +24,7 @@
       <span id="data"></span>
     </div>
 
-    <button type="submit" class="btn btn-primary width-hundred-percent">Query</button>
+    <button type="submit" class="btn btn-info width-hundred-percent">Query</button>
     <% end %>
   </div>
 </div>

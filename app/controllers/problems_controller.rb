@@ -8,6 +8,7 @@ class ProblemsController < ApplicationController
       fulltext params[:search]
       with :topic_id, topic.id
       order_by :created_at, :desc
+      paginate :page => params[:page], :per_page => 10
     end
     @problems = @search.results
   end
@@ -23,7 +24,6 @@ class ProblemsController < ApplicationController
   end
   
   def create
-    binding.pry
     @problem = current_user.problems.new(topic_params)
     if @problem.save
       flash[:success] = "Created Successfully!"
@@ -50,7 +50,7 @@ class ProblemsController < ApplicationController
   end
 
   def topic_params
-    params.require(:problem).permit(:title, :topic_id, :featured)
+    params.require(:problem).permit(:title, :topic_id, :featured, :description)
   end  
 end
 
