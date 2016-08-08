@@ -102,32 +102,7 @@ gem 'rack-protection', github: 'sinatra/rack-protection', require: false
 
 
 
-gem 'capistrano'
-gem 'capistrano-bundler'
-gem 'capistrano-rails'
-
-# Add this if you're using rbenv
-gem 'capistrano-rbenv', github: "capistrano/rbenv"
-
-# Add this if you're using rvm
-# gem 'capistrano-rvm', github: "capistrano/rvm"
-
-# gem 'capistrano'
-# gem 'capistrano-rvm'
-# gem 'capistrano-bundler'
-# gem 'capistrano-rails'
-# gem 'capistrano-passenger'
-
-# # gem 'capistrano'
-# # gem 'capistrano-rvm'
-# # gem 'capistrano-bundler'
-# # gem 'capistrano-rails'
-
-# gem 'capistrano'
-# gem 'capistrano-ext'
-# gem 'capistrano-bundler'
-# gem 'capistrano-rails'
-# # Add this if you're using rbenv
-# gem 'capistrano-rbenv'
-# # Add this if you're using rvm
-# gem 'capistrano-rvm'
+group :development do
+  gem 'capistrano-rails'
+  gem 'capistrano-rvm'
+end
