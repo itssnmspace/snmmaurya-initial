@@ -4,8 +4,7 @@ source 'https://rubygems.org'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.0.0'
 # Use sqlite3 as the database for Active Record
-gem 'sqlite3'
-gem 'pg'
+# gem 'sqlite3'
 gem 'mysql2'
 # Use Puma as the app server
 gem 'puma', '~> 3.0'
@@ -43,6 +42,7 @@ group :development, :test do
 end
 
 group :development do
+  gem 'pg'
   # Access an IRB console on exception pages or by using <%= console %> anywhere in the code.
   gem 'web-console'
   gem 'listen', '~> 3.0.5'
@@ -100,14 +100,13 @@ gem "sidekiq"
 gem 'sinatra', github: 'sinatra', require: false 
 gem 'rack-protection', github: 'sinatra/rack-protection', require: false
 
-group :development do
-  gem 'capistrano',         require: false
-  gem "net-ssh"
-  gem 'capistrano-rvm',     require: false
-  gem 'capistrano-rails',   require: false
-  gem 'capistrano-bundler', require: false
-  gem 'capistrano3-puma',   require: false
-end
+
+
+gem 'capistrano'
+gem 'capistrano-rvm'
+gem 'capistrano-bundler'
+gem 'capistrano-rails'
+gem 'capistrano-passenger'
 
 # # gem 'capistrano'
 # # gem 'capistrano-rvm'
