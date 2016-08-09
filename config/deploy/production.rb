@@ -1,9 +1,11 @@
 set :port, 22
 set :user, 'snmspace'
 set :deploy_via, :remote_cache
-set :use_sudo, false
+set :use_sudo, true
+set :branch, "master"
 
-server '139.59.18.21',
+
+server '138.68.8.26',
   roles: [:web, :app, :db],
   port: fetch(:port),
   user: fetch(:user),
