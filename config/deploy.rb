@@ -25,7 +25,9 @@ set :ssh_options,     { forward_agent: true, user: fetch(:user), keys: %w(~/.ssh
 set :puma_preload_app, true
 set :puma_worker_timeout, nil
 set :puma_init_active_record, false  # Change to true if using ActiveRecord
-
+set :linked_files, fetch(:linked_files, []).push('config/database.yml')
+# play nice with rvm
+set :default_shell, '/bin/bash -l'
 ## Defaults:
 # set :scm,           :git
 # set :branch,        :master
@@ -82,6 +84,14 @@ namespace :deploy do
   after  :finishing,    :restart
 end
 
+
+# Force invocation of the given task, even if it has already been run
+module Capistrano::DSL
+  def invoke(task, reenable: true, **args)
+    Rake::Task[task].invoke(args)
+    Rake::Task[task].reenable if reenable
+  end
+end
 # ps aux | grep puma    # Get puma pid
 # kill -s SIGUSR2 pid   # Restart puma
 # kill -s SIGTERM pid   # Stop puma
