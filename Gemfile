@@ -94,7 +94,7 @@ gem 'active_admin_editor', github: 'ejholmes/active_admin_editor'
 
 
 # Heroku Deployment
-gem 'rails_12factor', group: :production
+# gem 'rails_12factor', group: :production
 
 
 gem "sidekiq"
